@@ -1,0 +1,267 @@
+:root {
+    
+    /* font-family */
+    --ff-base: 'Karla', serif;
+    
+    /* font-size */
+    --fs-preset-8: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.5rem); 
+    --fs-preset-5: clamp(0.9375rem, 0.8011rem + 0.5455vw, 1.125rem);
+    --fs-preset-4: clamp(0.875rem, 0.7841rem + 0.3636vw, 1rem);
+
+    --fs-800: 2rem;
+    --fs-500: 1.125rem;
+    --fs-400: 1rem;
+
+    /* font-weight */
+    --fw-bold: 700;
+    --fw-regular: 400;
+
+    /* color */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-cyan: hsl(179, 62%, 43%);
+    --clr-yellow: hsl(71, 73%, 67%);
+    
+    --clr-neutral-600: hsl(204, 43%, 93%);
+    --clr-neutral-900: hsl(218, 22%, 67%);
+}
+
+/* set box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* reset margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body {
+    margin: 0;
+}
+
+/* Set up the body */
+body {
+    font-family: var(--ff-base);
+    background: var(--clr-neutral-600);
+    padding-block: 2rem;
+    
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+/* Reset list-style*/
+ul[type = "role"]{list-style: none;}
+
+/* Reset text-decoration */
+ul[type = "role"] a{text-decoration: none;}
+
+/* Make images easier to work with */
+img,
+picture {
+    object-fit: cover;
+    display: block;
+    width: 100%;
+}
+
+/* Make form elements to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animation for people who' ve turned them off */
+@media (prefers-reduced-motion: reduce)  {
+    *,
+    *::before,
+    *::after{
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ----------------------------------------------------- */
+/*                       button                          */
+/* ----------------------------------------------------- */
+
+.btn:is(.btn--yellow) {
+    --bg-btn: var(--clr-yellow);
+    --clr-btn: var(--clr-white);
+
+    --hover-bg-btn: hsl(71, 62%, 50%);
+    --hover-clr-btn: var(--clr-white);
+}
+
+.btn {
+    outline: none;
+    text-decoration: none;
+    padding-block: 0.875rem;
+    border-radius: 0.3125rem;
+    text-align: center;
+    font-size: var(--fs-400);
+    font-weight: var(--fw-bold);
+    background: var(--bg-btn);
+    color:var(--clr-btn);
+}
+
+.btn:hover,
+.btn:focus {
+    outline: none;
+    background: var(--hover-bg-btn);
+    color: var(--hover-clr-btn);
+}
+
+/* ----------------------------------------------------- */
+/*                         card                          */
+/* ----------------------------------------------------- */
+
+.card {
+    width: min(100% - 2rem * 2, 635px);
+    background: var(--clr-white);
+    border-radius: 0.3125rem;
+    display: grid;
+    box-shadow: 0 1rem 2rem -0.5rem hsl(218, 22%, 67%, 0.6);
+}
+
+/* ----------------------------------------------------- */
+/*                        intro                          */
+/* ----------------------------------------------------- */
+
+.intro {
+    display: grid;
+    grid-template-rows: 1fr 1fr max-content;
+}
+
+.intro .intro__title {
+    letter-spacing: -0.25px;
+    font-size: var(--fs-preset-8);
+    font-weight: var(--fw-bold);
+    color: var(--clr-cyan);
+}
+
+.intro .intro__abs {
+    letter-spacing: -0.19px;
+    line-height: 20px;
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+    color: var(--clr-yellow);
+}
+
+.intro .intro__info {
+    letter-spacing: -0.17px;
+    line-height: 26px;
+    font-size: var(--fs-preset-4);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-900);
+}
+
+/* ----------------------------------------------------- */
+/*                   subscription                        */
+/* ----------------------------------------------------- */
+
+.subscription {
+    display: grid;
+    grid-template-rows:1fr max-content 1fr max-content;
+    background: var(--clr-cyan);
+    color: var(--clr-white);
+}
+
+.subscription .subscription__title {
+    letter-spacing: -0.22px;
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+}
+
+.subscription .subscription__price span {
+    letter-spacing: -0.4px;
+    font-size: var(--fs-800);
+    font-weight: var(--fw-bold);
+}
+
+.subscription .subscription__price {
+    letter-spacing: -0.2px;
+    line-height: 26px;
+    font-style: var(--fs-400);
+    font-weight: var(--fw-regular);
+}
+
+.subscription .subscription__info {
+    letter-spacing: -0.2px;
+    line-height: 26px;
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
+}
+
+/* ----------------------------------------------------- */
+/*                       questions                       */
+/* ----------------------------------------------------- */
+
+.questions {
+    display: grid;
+    grid-template-rows: 1fr max-content;
+    background: hsl(179, 62%, 43%, 0.85);
+    color: var(--clr-white);
+}
+
+.questions .questions__title {
+    letter-spacing: -0.22px;
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+}
+
+.questions .questions__info {
+    letter-spacing: -0.17px;
+    line-height: 20px;
+    font-size: var(--fs-preset-4);
+    font-weight: var(--fw-regular);   
+}
+
+@media (max-width: 649px) { 
+    .intro {
+        padding-inline: 1.5rem;
+        padding-block-start: 1.75rem;
+        padding-block-end: 2rem;
+        min-height: 16.75rem;
+    }
+
+    .subscription {
+        padding: 1.5rem;
+        min-height: 14.25rem;
+    }
+
+    .questions {
+        padding: 1.5rem;
+        min-height: 14.25rem;
+    }
+}
+
+@media (min-width: 650px) {
+    .card {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(0, 13.5rem) minmax(16.25rem, 1fr);
+    }
+
+    .intro {
+        grid-column: 1 / span 2;
+        padding: 2.5rem;
+    }
+
+    .subscription {
+        padding: 2.5rem;
+        border-bottom-left-radius: 0.3125rem;
+    }
+
+    .questions {
+        padding: 2.5rem;
+        border-bottom-right-radius: 0.3125rem;
+    }
+}
